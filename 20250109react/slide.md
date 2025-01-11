@@ -160,7 +160,7 @@ npm run build
 
 ```
 <iframe
-  src="http://localhost:3000"
+  src="https://nkwork9999.github.io/next_charts/"
   width="800"
   height="600"
   style="border: none;"
