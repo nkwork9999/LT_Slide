@@ -1,0 +1,47 @@
+/* @theme enuke */
+
+/* スライド全体の背景色を灰色にする */
+section {
+  background-color: #ccc; /* 灰色の背景 */
+  color: #333; /* 文字色 */
+  position: relative; /* 線の配置のための相対配置 */
+}
+
+/* 見出しのスタイル調整 */
+h1,
+h2,
+h3 {
+  font-weight: 700;
+  color: #333;
+  font-size: 2em; /* 読みやすいサイズに調整 */
+}
+
+/* 通常のテキストのサイズ調整 */
+section p,
+section li {
+  font-size: 1.2em;
+}
+
+/* タイトル下にオレンジ色と緑色の線を追加し、ページ全体に横に配置 */
+section::after {
+  content: "";
+  display: block;
+  width: 100%; /* ページ全体に広がる */
+  height: 10px;
+  position: absolute;
+  left: 0;
+}
+
+section::after {
+  background: linear-gradient(to right, rgb(255, 214, 139) 1%, darkorange 99%);
+  top: 150px; /* タイトルの下あたりに配置 */
+}
+
+/* スライドのサイズを Marp に認識させる */
+@import "default";
+@import "https://cdn.jsdelivr.net/npm/@marp-team/marp-core/themes/default.css";
+
+/* スライドの 16:9 サイズを定義 */
+:root {
+  --marp-size-16-9: 1280px 720px;
+}
