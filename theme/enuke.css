@@ -1,5 +1,4 @@
 /* @theme enuke */
-
 /* スライド全体の背景色を灰色にする */
 section {
   background-color: #ccc; /* 灰色の背景 */
@@ -7,6 +6,46 @@ section {
   position: relative; /* 線の配置のための相対配置 */
 }
 
+section .title {
+  font-size: 2.5em; /* より大きなフォントサイズ */
+  font-weight: 900; /* より太いフォントウェイト */
+  color: #2c3e50; /* やや濃い目のグレー */
+  letter-spacing: -0.03em; /* 文字間隔を少し詰める */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* 微妙な影を追加 */
+}
+section .image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: auto; /* Allow container to adjust to content */
+  margin-left: auto; /* Push to the right side */
+}
+
+/* 白抜きエリアのスタイル */
+section .content-area {
+  background-color: white; /* 白い背景 */
+  border-radius: 8px; /* 角を丸くする */
+  padding: 20px; /* 内側の余白 */
+  margin-top: 50px; /* 線の下に配置するためのマージンを追加 */
+  position: relative; /* 相対配置で他の要素と重ならないように */
+  z-index: 1; /* 他の要素の上に表示する */
+}
+section .circular-image {
+  width: 200px; /* Adjust size as needed */
+  height: 200px; /* Make width and height the same */
+  border-radius: 50%; /* This makes the image circular */
+  object-fit: cover; /* Ensures the image covers the entire circle without distortion */
+  border: 4px solid #87cefa; /* Light blue border, adjust color as desired */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: adds a slight shadow */
+}
+
+/* If you want to center the image */
+section .image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px; /* Add some space below the image */
+}
 /* 見出しのスタイル調整 */
 h1,
 h2,
@@ -14,14 +53,17 @@ h3 {
   font-weight: 700;
   color: #333;
   font-size: 2em; /* 読みやすいサイズに調整 */
+  position: absolute; /* 絶対位置で配置 */
+  top: 50px; /* 線の上に配置するための位置調整 */
+  left: 0; /* 左揃え */
+  width: 100%; /* 幅を100%に設定 */
+  text-align: center; /* 中央揃え */
 }
-
 /* 通常のテキストのサイズ調整 */
 section p,
 section li {
   font-size: 1.2em;
 }
-
 /* タイトル下にオレンジ色と緑色の線を追加し、ページ全体に横に配置 */
 section::after {
   content: "";
@@ -30,17 +72,12 @@ section::after {
   height: 10px;
   position: absolute;
   left: 0;
-}
-
-section::after {
   background: linear-gradient(to right, rgb(255, 214, 139) 1%, darkorange 99%);
-  top: 150px; /* タイトルの下あたりに配置 */
+  top: 120px; /* タイトルの下あたりに配置 */
 }
-
 /* スライドのサイズを Marp に認識させる */
 @import "default";
 @import "https://cdn.jsdelivr.net/npm/@marp-team/marp-core/themes/default.css";
-
 /* スライドの 16:9 サイズを定義 */
 :root {
   --marp-size-16-9: 1280px 720px;
